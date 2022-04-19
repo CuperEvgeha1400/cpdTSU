@@ -1,0 +1,10 @@
+FROM python:3
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+RUN mkdir /forWORKDIR
+WORKDIR /forWORKDIR
+ADD . /forWORKDIR
+
+
+RUN pip install -r requirements.txt
+
