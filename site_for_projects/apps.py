@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AllsiteConfig(AppConfig):
+class SiteForProjectsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'allsite'
+    name = 'site_for_projects'

@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0c%xv)vuf4jj92e#7a1b8e5audmted=n5@h!m)bgnvk%8@^2%x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'allsite',
+    'site_for_projects',
     'multiselectfield',
 ]
 
@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'cpd.urls'
+
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql',
@@ -122,7 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -139,7 +141,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 CELERY_BEAT_SCHEDULE = {
     'hello': {
-        'task': 'allsite.task.hello',
+        'task': 'site_for_projects.tasks.hello',
         'schedule': crontab()  # execute every minute
     }
 }
